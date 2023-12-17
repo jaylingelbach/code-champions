@@ -1,0 +1,30 @@
+body {
+    background-color: #fffee0;
+}
+
+div {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+}
+
+h1 {
+    margin: auto;
+        width: 50%;
+        padding: 10px;
+        text-align: center;
+        background-color: white;
+}
+
+table {
+    margin: auto;
+            width: 50%;
+            padding: 10px;
+            text-align: center;
+}
+
+.error {
+    color: darkred;
+}
