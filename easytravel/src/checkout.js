@@ -3,9 +3,15 @@ import {PayPalButton} from 'react-paypal-button';
 
 const payPalButtonComponent = () => {
 
-    const success;
-    const cancel;
-    const error;
+    const success = (payment) => {
+
+    };
+    const cancel = (data) => {
+
+    };
+    const error = (err) => {
+
+    };
 };
 
 export default payPalButtonComponent;
