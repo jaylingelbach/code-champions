@@ -3,6 +3,7 @@ package com.codechampions.easytravel.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +15,11 @@ public class Itinerary {
     @GeneratedValue
     private Integer id;
 
-
+    @ManyToMany
     private List<Activity> activityList = new ArrayList<>();
+
+    public Itinerary() {
+    }
 
     public Itinerary(Integer id, List<Activity> activityList) {
         this.id = id;

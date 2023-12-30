@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 
 import java.awt.*;
 
+
 @Entity
 public class User {
     @Id
@@ -22,7 +23,10 @@ public class User {
 
     private String password;
 
-    private Image avatar;
+//    private Image avatar;
+
+    public User() {
+    }
 
     public User(Integer id, String userName, String email, String firstName, String lastName, String password, Image avatar) {
         this.id = id;
@@ -31,7 +35,7 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-        this.avatar = avatar;
+//        this.avatar = avatar;
     }
 
 
@@ -83,11 +87,11 @@ public class User {
         this.password = password;
     }
 
-    public Image getAvatar() {
-        return avatar;
-    }
+//    public Image getAvatar() {
+//        return avatar;
+//    }
 
-    public void setAvatar(Image avatar) {
-        this.avatar = avatar;
-    }
+//    public void setAvatar(Image avatar) {
+//        this.avatar = avatar;
+//    }
 }
