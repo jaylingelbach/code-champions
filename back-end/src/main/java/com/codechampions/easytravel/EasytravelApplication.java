@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EasytravelApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(EasytravelApplication.class, args);
 	}
 
