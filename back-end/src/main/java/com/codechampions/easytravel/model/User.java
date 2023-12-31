@@ -1,7 +1,8 @@
-package com.codechampions.easytravel.model.dto;
+package com.codechampions.easytravel.model;
 
+import com.codechampions.easytravel.model.AbstractEntity;
 import jakarta.persistence.Entity;
-import org.antlr.v4.runtime.misc.NotNull;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
@@ -31,8 +32,7 @@ public class User extends AbstractEntity {
     @NotNull
     private String pwHash;
 
-    public User() {
-    }
+    public User() {}
 
     public User(String username, String firstname, String lastname, String email, String address, String phonenumber, String password) {
         this.username = username;

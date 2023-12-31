@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th = "http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome</title>
-    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
-</head>
+<head th:replace="~{fragments :: head}"></head>
+
 <body>
-<h3 th:text = "'Welcome to easyTravel, ' + ${user.username} + '!'"></h3>
+    <header th:replace="~{fragments :: header}"></header>
+    <main>
+        <h3 th:text = "'Welcome to easyTravel, ' + '${registrationFormDTO.username}' + '!'"></h3>
+    </main>
+</body>
+</html>
+
+
 
 <!-- a bug here that can't display the users' details yet
 <a th:href="@{'/user/details/'}">
@@ -19,5 +23,3 @@
 </th:block>
 
 -->
-</body>
-</html>

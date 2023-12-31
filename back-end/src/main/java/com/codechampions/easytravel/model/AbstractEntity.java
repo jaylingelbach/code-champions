@@ -1,4 +1,4 @@
-package com.codechampions.easytravel.model.dto;
+package com.codechampions.easytravel.model;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
