@@ -2,10 +2,12 @@ package com.codechampions.easytravel.controller;
 
 
 import com.codechampions.easytravel.model.User;
+import com.codechampions.easytravel.model.dto.LoginFormDTO;
 import com.codechampions.easytravel.model.dto.RegistrationFormDTO;
 import com.codechampions.easytravel.repository.UserRepository;
-import
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,7 +57,9 @@ public class AuthenticationController {
     // Handlers for registration form
     @GetMapping("/register")
     public String displayRegistrationForm(Model model, HttpSession session) {
+        //pass down an instance of the registration for DTO just to let it know what object to look into (by using constructor)
         model.addAttribute(new RegistrationFormDTO());
+        // send value of loggedIn boolean   q
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
         return "register";
     }
@@ -88,17 +92,21 @@ public class AuthenticationController {
         }
 
         // OTHERWISE, save new username and hashed password in database, start a new session, and redirect to home page
-        User newUser = new User(registrationFormDTO.getUsername(), registrationFormDTO.getPassword());
+        User newUser = new User(
+                registrationFormDTO.getUsername(),
+                registrationFormDTO.getPassword()
+        );
+
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
-        return "redirect:/artworks";
+        return "redirect:/activities";
     }
 
     // Handlers for login form
     @GetMapping("/login")
     public String displayLoginForm(Model model, HttpSession session) {
         model.addAttribute(new LoginFormDTO()); // "loginFormDTO" variable implicit
-        model.addAttribute("loggedIn", session.getAttribute("user") != null);
+        model.addAttribute("loggedIn", session.getAttribute(userSessionKey) != null);
         return "login";
     }
 
@@ -131,7 +139,7 @@ public class AuthenticationController {
 
         // OTHERWISE, create a new session for the user and take them to the home page
         setUserInSession(request.getSession(), theUser);
-        return "redirect:/artworks";
+        return "redirect:/activities";
     }
 
     // Handler for logout

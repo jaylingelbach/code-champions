@@ -34,6 +34,12 @@ public class User extends AbstractEntity {
 
     public User() {}
 
+    public User(String username, String password) {
+        this.username = username;
+        this.pwHash = encoder.encode(password);
+    }
+
+
     public User(String username, String firstname, String lastname, String email, String address, String phonenumber, String password) {
         this.username = username;
         this.firstname = firstname;
@@ -67,6 +73,7 @@ public class User extends AbstractEntity {
     public String getPhonenumber() {
         return phonenumber;
     }
+
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     public boolean isMatchingPassword(String password) {
