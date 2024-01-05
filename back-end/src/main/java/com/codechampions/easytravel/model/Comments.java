@@ -9,7 +9,7 @@ public class Comments {
     @GeneratedValue
     private Integer id;
 
-    @OneToMany
+
     private Integer userId;
 
     private String text;
