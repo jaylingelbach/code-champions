@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+
+<body>
+<h1>Your Profile</h1>
+<p th:text="${userProfile.username}"></p>
+<p th:text="${userProfile.email}"></p>
+<p th:text="${userProfile.bio}"></p>
+</body>
+</html>
