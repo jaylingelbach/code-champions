@@ -1,10 +1,8 @@
 package com.codechampions.easytravel.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
+import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,12 +16,16 @@ public class Itinerary {
     @ManyToMany
     private List<Activity> activityList = new ArrayList<>();
 
+    @OneToMany
+    private List<Comments> commentsList = new ArrayList<>();
+
     public Itinerary() {
     }
 
-    public Itinerary(Integer id, List<Activity> activityList) {
+    public Itinerary(Integer id, List<Activity> activityList, List<Comments> commentsList) {
         this.id = id;
         this.activityList = activityList;
+        this.commentsList = commentsList;
     }
 
     public Integer getId() {
@@ -40,5 +42,13 @@ public class Itinerary {
 
     public void setActivityList(List<Activity> activityList) {
         this.activityList = activityList;
+    }
+
+    public List<Comments> getCommentsList() {
+        return commentsList;
+    }
+
+    public void setCommentsList(List<Comments> commentsList) {
+        this.commentsList = commentsList;
     }
 }
