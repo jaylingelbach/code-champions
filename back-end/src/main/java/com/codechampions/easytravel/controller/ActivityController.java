@@ -2,12 +2,10 @@ package com.codechampions.easytravel.controller;
 
 import com.codechampions.easytravel.repository.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.codechampions.easytravel.model.Activity;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ActivityController {
@@ -16,11 +14,38 @@ public class ActivityController {
     private ActivityRepository activityRepository;
 
     @PostMapping("/activity")
-    Activity newActivity(@RequestBody Activity newActivity){
+    Activity newActivity(@RequestBody Activity newActivity) {
         return activityRepository.save(newActivity);
     }
+
     @GetMapping("/activities")
-    List<Activity> getAllActivities(){
+    List<Activity> getAllActivities() {
         return activityRepository.findAll();
+    }
+
+    @GetMapping("/activity/{id}")
+    Optional<Activity> getActivityById(@PathVariable Long id) {
+        return activityRepository.findById(id);
+    }
+
+    @PutMapping("/activity/{id}")
+    Optional<Activity> updateActivity(@RequestBody Activity newActivity, @PathVariable Long id){
+        return activityRepository.findById(id)
+                .map(activity -> {
+                    activity.setEvent_name(newActivity.getEvent_name());
+                    activity.setEvent_description(newActivity.getEvent_description());
+                    activity.setLocation(newActivity.getLocation());
+                    activity.setCost(newActivity.getCost());
+                    activity.setStart_date(newActivity.getStart_date());
+                    activity.setEnd_date(newActivity.getEnd_date());
+                    return activityRepository.save(activity);
+                });
+    }
+
+    @DeleteMapping("/activity/{id}")
+    String deleteActivity(@PathVariable Long id) {
+        ;
+        activityRepository.deleteById(id);
+        return "User with id " + id + " has been deleted successfully.";
     }
 }
