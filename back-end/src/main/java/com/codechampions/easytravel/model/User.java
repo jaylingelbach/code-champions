@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 //import jakarta.validation.Valid;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-
 @Entity
 public class User extends AbstractEntity{
 
