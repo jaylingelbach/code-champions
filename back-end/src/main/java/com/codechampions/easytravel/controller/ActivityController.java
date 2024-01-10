@@ -1,5 +1,6 @@
 package com.codechampions.easytravel.controller;
 
+import com.codechampions.easytravel.model.Group;
 import com.codechampions.easytravel.repository.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,11 @@ public class ActivityController {
         return activityRepository.findById(id);
     }
 
+    @GetMapping("/activities/group/{id}")
+    List<Activity> getAllGroups(@PathVariable Long id) {return activityRepository.findByGroupId(id);
+    }
+
+
     @PutMapping("/activity/{id}")
     Optional<Activity> updateActivity(@RequestBody Activity newActivity, @PathVariable Long id){
         return activityRepository.findById(id)
@@ -38,6 +44,7 @@ public class ActivityController {
                     activity.setCost(newActivity.getCost());
                     activity.setStart_date(newActivity.getStart_date());
                     activity.setEnd_date(newActivity.getEnd_date());
+                    activity.setGroupId(newActivity.getGroupId());
                     return activityRepository.save(activity);
                 });
     }

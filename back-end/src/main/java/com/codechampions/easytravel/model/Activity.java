@@ -1,4 +1,5 @@
 package com.codechampions.easytravel.model;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -16,6 +17,17 @@ public class Activity {
     private String location;
     private String start_date;
     private String end_date;
+
+    public Long getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
+    }
+
+    @Column(name= "group_id", nullable = false)
+    private Long groupId;
 
     public Long getId() {
         return id;
