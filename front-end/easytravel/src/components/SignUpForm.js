@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import EmailJS from '@emailjs/browser'; 
+import EmailJS from '@emailjs/browser';
 
 const SignUpForm = () => {
   const [name, setName] = useState('');
@@ -7,16 +7,19 @@ const SignUpForm = () => {
   const [location, setLocation] = useState('');
   const [groupOption, setGroupOption] = useState('create');
   const [groupName, setGroupName] = useState('');
-  const [existingGroups, setExistingGroups] = useState([]); // Replace with actual list of existing groups
+  const [existingGroups, setExistingGroups] = useState([]);
 
-  const handleSignUp = (e) => {
+  // endpoint to get groups - http://localhost:8080/groups
+  // endpoint to add group - http://localhost:8080/group
+
+  const handleSignUp = async (e) => {
     e.preventDefault();
 
     if (groupOption === 'create') {
-        // Use EmailJS to send an email to the group organizer
-      EmailJS.send('service_elz78fs', 'template_kmzey75', {
+      // Uses EmailJS to send an email to the group organizer
+      await EmailJS.send('service_elz78fs', 'template_kmzey75', {
         to_name: 'Event Organizer',
-        to_email: 'codechampion@outlook.com', 
+        to_email: 'codechampion@outlook.com',
         message: `Hello! ${name} has created a group!`,
       }, 'WR04ZCXsGKETfDiFH').then(
         (response) => {
@@ -26,23 +29,22 @@ const SignUpForm = () => {
           console.error('Email could not be sent:', error);
         }
       );
-      // Check if the group name already exists
-      const groupExists = existingGroups.some(group => group === groupName);
+
+      // Use the updated state to check if the group name already exists
+      const groupExists = existingGroups.some((group) => group === groupName);
       if (groupExists) {
         alert('Group name already exists. Please choose a different name.');
         return;
       }
     }
 
-    // Perform actions like sending data to server, etc.
-    // Example: Send email using EmailJS
     if (groupOption === 'join') {
-      // Use EmailJS to send an email to the group organizer
-      EmailJS.send('service_elz78fs', 'template_kmzey75', {
-        to_name: 'Itinerary Organizer',
-        to_email: 'codechampion@outlook.com', 
+      // Uses EmailJS to send an email to the group organizer
+      await EmailJS.send('service_elz78fs', 'template_kmzey75', {
+        to_name: 'Event Organizer',
+        to_email: 'codechampion@outlook.com',
         message: `Hello! ${name} has joined your group!`,
-      }).then(
+      }, 'WR04ZCXsGKETfDiFH').then(
         (response) => {
           console.log('Email sent!', response);
         },
@@ -52,7 +54,7 @@ const SignUpForm = () => {
       );
     }
 
-    // Reset form fields after submission
+    // Resets form fields after submission
     setName('');
     setEmail('');
     setLocation('');
@@ -109,14 +111,18 @@ const SignUpForm = () => {
         />
       )}
       {groupOption === 'join' && (
-        <select>
-          {existingGroups.map((group, index) => (
-            <option key={index} value={group}>
-              {group}
-            </option>
-          ))}
-        </select>
-      )}
+  <select
+    value={groupName}
+    onChange={(e) => setGroupName(e.target.value)}
+  >
+    {existingGroups.map((group, index) => (
+      <option key={index} value={group}>
+        {group}
+      </option>
+    ))}
+  </select>
+)}
+
       <button type="submit">Sign Up</button>
     </form>
   );
