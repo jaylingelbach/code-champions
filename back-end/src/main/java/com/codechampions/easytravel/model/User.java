@@ -1,8 +1,9 @@
 package com.codechampions.easytravel.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 //import jakarta.validation.constraints.NotNull;
+//import jakarta.validation.Valid;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @Entity
@@ -11,56 +12,36 @@ public class User extends AbstractEntity{
     //    @NotNull
     private String username;
 
-    private String password;
+    private String pwHash;
+
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @Valid
+//   @JoinColumn()
+//    private UserProfile profile;
+
+
+    public User() {}
 
     public User(String username, String password) {
         this.username = username;
-        this.password = password;
+        this.pwHash = encoder.encode(password);
     }
 
-    public User() {
+//    public User(String username, UserProfile profile) {
+//        this.username =username;
+//        this.profile = profile;
+//    }
 
-    }
-
-    //
-//    @NotNull
-//    @Column(name = "first_name", length = 20)
-//    private String firstName;
-//
-//    @NotNull
-//    @Column(name = "last_name", length = 20)
-//    private String lastName;
-//
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    //should not able to be overwritten
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    public String getPassword() {
-        return password;
+    public boolean isMatchingPassword(String password) {
+        return encoder.matches(password, pwHash);
     }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-//
-//    public String getFirstName() {
-//        return firstName;
-//    }
-//
-//    public void setFirstName(String firstName) {
-//        this.firstName = firstName;
-//    }
-//
-//    public String getLastName() {
-//        return lastName;
-//    }
-//
-//    public void setLastName(String lastName) {
-//        this.lastName = lastName;
-//    }
 
 }
+

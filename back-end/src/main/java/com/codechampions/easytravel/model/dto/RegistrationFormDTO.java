@@ -1,6 +1,5 @@
 package com.codechampions.easytravel.model.dto;
 
-
 public class RegistrationFormDTO extends LoginFormDTO{
 
     //    @NotNull(message = "Password is required")
