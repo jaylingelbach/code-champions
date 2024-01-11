@@ -19,6 +19,8 @@ public class UserProfile extends AbstractEntity{
 
     private String email;
 
+    public UserProfile() {}
+
     public UserProfile(int userId, String firstName, String lastName, String address, String location, String email) {
         this.userId = userId;
         this.firstName = firstName;
