@@ -38,12 +38,16 @@ public class ProfileController {
 
         if (userProfile != null) {
             userProfileDTO.setFirstName(userProfile.getFirstName());
+            userProfileDTO.setLastName(userProfile.getLastName());
+            userProfileDTO.setAddress(userProfile.getAddress());
+            userProfileDTO.setLocation(userProfile.getLocation());
+            userProfileDTO.setEmail(userProfile.getEmail());
         }
 
         model.addAttribute("username", userOpt.get().getUsername());
         model.addAttribute("userProfileDTO", userProfileDTO);
 
-        return "profile/view";
+        return "profile/form";
     }
 
 }
