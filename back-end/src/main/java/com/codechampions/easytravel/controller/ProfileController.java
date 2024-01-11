@@ -27,7 +27,7 @@ public class ProfileController {
     private static final String userSessionKey = "user";
 
     @GetMapping("")
-    public String viewProfile (Model model, HttpSession session) {
+    public String displayProfileForm (Model model, HttpSession session) {
 
         Integer userId = (Integer) session.getAttribute(userSessionKey);
 
