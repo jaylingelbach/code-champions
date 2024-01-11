@@ -2,7 +2,7 @@ package com.codechampions.easytravel.model;
 
 import jakarta.persistence.*;
 //import jakarta.validation.constraints.NotNull;
-//import jakarta.validation.Valid;
+import jakarta.validation.Valid;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
@@ -25,6 +25,10 @@ public class User extends AbstractEntity{
         this.username = username;
         this.pwHash = encoder.encode(password);
     }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @Valid
+    private UserProfile profile;
 
 //    public User(String username, UserProfile profile) {
 //        this.username =username;
