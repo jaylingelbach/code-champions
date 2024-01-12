@@ -5,6 +5,10 @@ const Event = () => {
     <div>
       <h2>Event Page</h2>
       <p>Welcome to easyTravel!</p>
+      <form>
+        <label><input placeholder='Search'></input>Search</label>
+
+      </form>
     </div>
   );
 };
