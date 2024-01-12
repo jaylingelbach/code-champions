@@ -42,7 +42,7 @@ public class ProfileController {
             userProfileDTO.setFirstName(userProfile.getFirstName());
             userProfileDTO.setLastName(userProfile.getLastName());
             userProfileDTO.setAddress(userProfile.getAddress());
-            userProfileDTO.setLocation(userProfile.getLocation());
+            userProfileDTO.setCity(userProfile.getCity());
             userProfileDTO.setEmail(userProfile.getEmail());
         }
 
@@ -68,7 +68,7 @@ public class ProfileController {
         userProfile.setFirstName(userProfileDTO.getFirstName());
         userProfile.setLastName(userProfileDTO.getLastName());
         userProfile.setAddress(userProfileDTO.getAddress());
-        userProfile.setLocation(userProfileDTO.getLocation());
+        userProfile.setCity(userProfileDTO.getCity());
         userProfile.setEmail(userProfileDTO.getEmail());
 
         profileRepository.save(userProfile);

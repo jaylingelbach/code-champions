@@ -8,20 +8,32 @@
 
 <main>
     <div>
-        <!-- TODO: add logged in user's name -->
+        <h1>Welcome,</h1>
         <h1 th:text="${username}">User's name</h1>
     </div>
 
     <form method="post">
         <div>
-            <label th:for="firstname">First Name</label>
-            <input th:value="${userProfileDTO.firstName}" id="firstname" name="firstname"/>
+            <label th:for="firstName">First Name</label>
+            <input th:value="${userProfileDTO.firstName}" id="firstName" name="firstName"/>
         </div>
-        <!--            <div>-->
-        <!--                <label th:for="password">Password</label>-->
-        <!--                <input th:field="${loginFormDTO.password}" type="password" />-->
-        <!--                <p th:errors="${loginFormDTO.password}"></p>-->
-        <!--            </div>-->
+        <div>
+            <label th:for="lastName">Last Name</label>
+            <input th:value="${userProfileDTO.lastName}" id="lastName" name="lastName"/>
+        </div>
+        <div>
+            <label th:for="address">Address</label>
+            <input th:value="${userProfileDTO.address}" id="address" name="address"/>
+        </div>
+        <div>
+            <label th:for="city">City</label>
+            <input th:value="${userProfileDTO.city}" id="city" name="city"/>
+        </div>
+        <div>
+            <label th:for="email">Email</label>
+            <input th:value="${userProfileDTO.email}" id="email" name="email"/>
+        </div>
+
 
         <button type="Submit">Save</button>
     </form>
@@ -29,4 +41,3 @@
 
 </body>
 </html>
->
