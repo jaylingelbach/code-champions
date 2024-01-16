@@ -18,8 +18,8 @@ const Event = () => {
         type='text'  
         value={search}
         placeholder='Search'
-        onChange={event => setSearch(event.target.value)}></input>
-        <button>Search</button>
+        ></input>
+        <button onClick={() => setSearch()}>Search</button>
 
       </form>
     </div>
