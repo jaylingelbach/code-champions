@@ -1,5 +1,6 @@
 package com.codechampions.easytravel.controller;
 
+import com.codechampions.easytravel.repository.ActivityRepository;
 import com.codechampions.easytravel.repository.CommentRepository;
 import com.codechampions.easytravel.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ public class CommentController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    ActivityRepository activityRepository;
 
 
 }
