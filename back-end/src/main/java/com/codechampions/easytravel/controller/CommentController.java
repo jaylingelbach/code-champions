@@ -33,6 +33,8 @@ public class CommentController {
         Comment newComment = new Comment();
         model.addAttribute("comments", comments);
         model.addAttribute("newComment", newComment);
+
+        return "comments/commentshowpage";
     }
 
 
