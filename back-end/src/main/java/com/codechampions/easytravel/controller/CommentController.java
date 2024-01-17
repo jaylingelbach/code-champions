@@ -48,6 +48,7 @@ public class CommentController {
 
         if( userOpt.isPresent()) {
             newComment.setUser(userOpt.get());
+            commentRepository.save(newComment);
         }
 
         }
