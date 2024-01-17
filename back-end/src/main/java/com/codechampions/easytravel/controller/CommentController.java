@@ -30,6 +30,7 @@ public class CommentController {
     @GetMapping("")
     public String showComment(Model model, HttpSession session) {
         List<Comment> comments = commentRepository.findAll();
+        Comment newComment = new Comment();
     }
 
 
