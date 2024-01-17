@@ -41,6 +41,6 @@ public class CommentController {
 
     @PostMapping("")
     public String addComment(@ModelAttribute Comment newComment, HttpSession session) {
-
+        Integer userId = (Integer) session.getAttribute(userSessionKey);
 
 }
