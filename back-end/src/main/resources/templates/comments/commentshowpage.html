@@ -7,6 +7,9 @@
 <body>
     <main>
         <p>Here's an activity.</p>
+        <div th:each="comment:${comments}">
+            <p th:text="${comment.text}"></p>
+        </div>
     </main>
 
 </body>
