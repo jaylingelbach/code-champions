@@ -16,10 +16,10 @@ const Event = () => {
         <input id='search'
         name='search'
         type='text'  
-        value={search}
+        
         placeholder='Search'
         ></input>
-        <button onClick={() => setSearch()}>Search</button>
+        <button onClick={event => setSearch(event.target.value)}>Search</button>
 
       </form>
     </div>
