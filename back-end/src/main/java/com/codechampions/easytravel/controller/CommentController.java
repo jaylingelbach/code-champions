@@ -1,6 +1,7 @@
 package com.codechampions.easytravel.controller;
 
 import com.codechampions.easytravel.model.Comment;
+import com.codechampions.easytravel.model.User;
 import com.codechampions.easytravel.repository.ActivityRepository;
 import com.codechampions.easytravel.repository.CommentRepository;
 import com.codechampions.easytravel.repository.UserRepository;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/comments")
@@ -42,5 +44,6 @@ public class CommentController {
     @PostMapping("")
     public String addComment(@ModelAttribute Comment newComment, HttpSession session) {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
+        Optional<User> userOpt = userRepository.findById(userId);
 
 }
