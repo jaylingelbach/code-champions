@@ -31,6 +31,8 @@ public class CommentController {
     public String showComment(Model model, HttpSession session) {
         List<Comment> comments = commentRepository.findAll();
         Comment newComment = new Comment();
+        model.addAttribute("comments", comments);
+        model.addAttribute("newComment", newComment);
     }
 
 
