@@ -46,4 +46,8 @@ public class CommentController {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
         Optional<User> userOpt = userRepository.findById(userId);
 
+        if( userOpt.isPresent()) {
+
+        }
+
 }
