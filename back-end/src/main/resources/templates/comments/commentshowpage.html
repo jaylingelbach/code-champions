@@ -12,7 +12,10 @@
         </div>
 
         <form method="POST">
-
+            <div>
+                <label th:for="text">Leave your comments</label>
+                <input th:value="${newComment.text}" id="text" name="text"/>
+            </div>
         </form>
     </main>
 
