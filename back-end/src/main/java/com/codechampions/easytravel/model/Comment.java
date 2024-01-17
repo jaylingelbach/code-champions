@@ -16,4 +16,6 @@ public class Comment extends AbstractEntity{
 
     private String text;
 
+    public Comment() {}
+
 }
