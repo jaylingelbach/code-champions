@@ -19,5 +19,7 @@ public class CommentController {
     @Autowired
     ActivityRepository activityRepository;
 
+    private static final String userSessionKey = "user";
+
 
 }
