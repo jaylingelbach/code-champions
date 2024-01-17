@@ -50,7 +50,7 @@ public class CommentController {
             newComment.setUser(userOpt.get());
             commentRepository.save(newComment);
         }
-
+        return "redirect:/comments";
         }
 
 }
