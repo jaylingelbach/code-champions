@@ -1,5 +1,6 @@
 package com.codechampions.easytravel.controller;
 
+import com.codechampions.easytravel.model.Comment;
 import com.codechampions.easytravel.repository.ActivityRepository;
 import com.codechampions.easytravel.repository.CommentRepository;
 import com.codechampions.easytravel.repository.UserRepository;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/comments")
@@ -26,7 +29,7 @@ public class CommentController {
 
     @GetMapping("")
     public String showComment(Model model, HttpSession session) {
-
+        List<Comment> comments = commentRepository.findAll();
     }
 
 
