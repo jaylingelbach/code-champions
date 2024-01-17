@@ -47,6 +47,8 @@ public class CommentController {
         Optional<User> userOpt = userRepository.findById(userId);
 
         if( userOpt.isPresent()) {
+            newComment.setUser(userOpt.get());
+        }
 
         }
 
