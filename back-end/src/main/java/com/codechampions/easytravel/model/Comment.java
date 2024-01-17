@@ -18,4 +18,10 @@ public class Comment extends AbstractEntity{
 
     public Comment() {}
 
+    public Comment(Activity activity, User user, String text) {
+        this.activity = activity;
+        this.user = user;
+        this.text = text;
+    }
+
 }
