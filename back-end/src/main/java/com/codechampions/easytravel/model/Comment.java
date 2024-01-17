@@ -24,4 +24,13 @@ public class Comment extends AbstractEntity{
         this.text = text;
     }
 
+    public Activity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
+    }
+
+
 }
