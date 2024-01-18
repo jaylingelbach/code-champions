@@ -124,4 +124,12 @@ public class ActivityController {
         return "activities/delete";
     }
 
+    @PostMapping("/delete")
+    public String processDeleteActivityForm(@RequestParam(required = false) int[] activityIds) {
+        for (int id:activityIds) {
+            activityRepository.deleteById(id);
+        }
+        return "redirect:/activities";
+    }
+
 }
