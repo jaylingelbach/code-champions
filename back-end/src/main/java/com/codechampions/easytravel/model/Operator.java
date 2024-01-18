@@ -22,4 +22,12 @@ public class Operator extends AbstractEntity{
         this.name = name;
         this.email = email;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
