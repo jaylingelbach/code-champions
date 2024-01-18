@@ -39,4 +39,7 @@ public class Operator extends AbstractEntity{
         this.email = email;
     }
 
+    public List<Activity> getActivities() {
+        return activities;
+    }
 }
