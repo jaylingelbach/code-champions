@@ -2,11 +2,14 @@ package com.codechampions.easytravel.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 
 @Entity
 public class Activity extends AbstractEntity{
 
+    @ManyToOne
+    private User user;
     private String event_name;
     private String event_description;
     private Float cost;
