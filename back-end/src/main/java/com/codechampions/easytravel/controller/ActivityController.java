@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.codechampions.easytravel.model.Activity;
 import java.util.List;
 
-@RestController
+@Controller
 public class ActivityController {
 
     @Autowired
