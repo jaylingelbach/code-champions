@@ -1,8 +1,7 @@
 package com.codechampions.easytravel.model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 
 @Entity
@@ -16,6 +15,9 @@ public class Activity extends AbstractEntity{
     private String location;
     private String start_date;
     private String end_date;
+
+    @ManyToMany
+    private List<ActivityType> activityTypes;
 
     public User getUser() {
         return user;
