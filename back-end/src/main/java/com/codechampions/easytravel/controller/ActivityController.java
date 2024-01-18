@@ -16,6 +16,9 @@ import java.util.List;
 public class ActivityController {
 
     @Autowired
+    CommentRepository commentRepository;
+
+    @Autowired
     private ActivityRepository activityRepository;
 
     @PostMapping("/activity")
