@@ -1,5 +1,6 @@
 package com.codechampions.easytravel.controller;
 
+import com.codechampions.easytravel.repository.CommentRepository;
 import org.springframework.stereotype.Controller;
 import com.codechampions.easytravel.repository.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
