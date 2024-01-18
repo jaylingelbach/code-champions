@@ -16,6 +16,10 @@ public class ActivityType extends AbstractEntity{
 
     public ActivityType() {}
 
+    public ActivityType(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
