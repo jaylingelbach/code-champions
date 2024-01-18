@@ -15,4 +15,6 @@ public class Operator extends AbstractEntity{
 
     @ManyToMany(mappedBy = "operators")
     private final List<Activity> activities = new ArrayList<>();
+
+    public Operator() {}
 }
