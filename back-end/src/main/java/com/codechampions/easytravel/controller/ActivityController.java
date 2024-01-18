@@ -30,6 +30,8 @@ public class ActivityController {
     @Autowired
     private UserRepository userRepository;
 
+    private static final String userSessionKey = "user";
+
     @PostMapping("/activity")
     Activity newActivity(@RequestBody Activity newActivity){
         return activityRepository.save(newActivity);
