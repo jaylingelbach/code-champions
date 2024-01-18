@@ -90,4 +90,20 @@ public class Activity extends AbstractEntity{
     public void setEnd_date(String end_date) {
         this.end_date = end_date;
     }
+
+    public List<ActivityType> getActivityTypes() {
+        return activityTypes;
+    }
+
+    public void setActivityTypes(List<ActivityType> activityTypes) {
+        this.activityTypes = activityTypes;
+    }
+
+    public List<Operator> getOperators() {
+        return operators;
+    }
+
+    public void setOperators(List<Operator> operators) {
+        this.operators = operators;
+    }
 }
