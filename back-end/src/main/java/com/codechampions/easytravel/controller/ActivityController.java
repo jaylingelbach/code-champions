@@ -1,15 +1,18 @@
 package com.codechampions.easytravel.controller;
 
+import org.springframework.stereotype.Controller;
 import com.codechampions.easytravel.repository.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 import com.codechampions.easytravel.model.Activity;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.List;
 
 @Controller
+@RequestMapping("/activities")
 public class ActivityController {
 
     @Autowired
