@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d2b539b-9291-476a-b129-8b79a88683ec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/code-champions.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="3d2b539b-9291-476a-b129-8b79a88683ec" name="Changes" comment="commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/.gradle/8.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/8.5/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/.gradle/8.5/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/8.5/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/.gradle/8.5/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/8.5/checksums/sha1-checksums.bin" afterDir="false" />
@@ -23,10 +17,13 @@
       <change beforePath="$PROJECT_DIR$/back-end/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/build/resources/main/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/build/tmp/compileJava/compileTransaction/stash-dir/ActivityController.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/codechampions/easytravel/model/Comments.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/codechampions/easytravel/model/Itinerary.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/codechampions/easytravel/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/codechampions/easytravel/repository/CommentsRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/codechampions/easytravel/repository/ItineraryRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/classes/java/main/com/codechampions/easytravel/repository/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +52,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -76,12 +74,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "jesse-sql-classes",
+    "git-widget-placeholder": "mark-weather-API",
     "last_opened_file_path": "C:/Users/lawso/OneDrive/Desktop/Java/Assignments/Assignment-2",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.All in code-champions">
     <configuration name="back-end [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="env">
@@ -110,8 +108,17 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="All in code-champions" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="code-champions" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in code-champions" />
         <item itemvalue="Gradle.back-end [bootRun]" />
       </list>
     </recent_temporary>
@@ -126,5 +133,10 @@
       <updated>1703206011438</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>

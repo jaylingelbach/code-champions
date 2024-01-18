@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/code-champions.iml" filepath="$PROJECT_DIR$/.idea/code-champions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/easytravel.iml" filepath="$PROJECT_DIR$/.idea/modules/easytravel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/easytravel.main.iml" filepath="$PROJECT_DIR$/.idea/modules/easytravel.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/easytravel.test.iml" filepath="$PROJECT_DIR$/.idea/modules/easytravel.test.iml" />
     </modules>
   </component>
 </project>
