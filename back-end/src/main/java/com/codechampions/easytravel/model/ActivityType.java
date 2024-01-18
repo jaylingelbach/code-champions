@@ -14,4 +14,12 @@ public class ActivityType extends AbstractEntity{
     @ManyToMany(mappedBy = "activityTypes")
     private final List<Activity> activities = new ArrayList<>();
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }
