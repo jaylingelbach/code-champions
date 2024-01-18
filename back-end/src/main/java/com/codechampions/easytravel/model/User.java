@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class User extends AbstractEntity{
 
@@ -17,16 +20,15 @@ public class User extends AbstractEntity{
     @Valid
     private UserProfile profile;
 
+    @OneToMany
+    private final List<Activity> activities = new ArrayList<>();
+
     public User() {}
 
     public User(String username, String password) {
         this.username = username;
         this.pwHash = encoder.encode(password);
     }
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @Valid
-    private UserProfile profile;
 
 //    public User(String username, UserProfile profile) {
 //        this.username =username;
