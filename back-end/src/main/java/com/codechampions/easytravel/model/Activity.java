@@ -5,7 +5,7 @@ import jakarta.persistence.Id;
 
 
 @Entity
-public class Activity {
+public class Activity extends AbstractEntity{
 
     @Id
     @GeneratedValue
