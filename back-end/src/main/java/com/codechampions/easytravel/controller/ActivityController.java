@@ -3,9 +3,11 @@ package com.codechampions.easytravel.controller;
 import com.codechampions.easytravel.model.ActivityType;
 import com.codechampions.easytravel.model.Operator;
 import com.codechampions.easytravel.repository.*;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import com.codechampions.easytravel.model.Activity;
 
@@ -63,6 +65,29 @@ public class ActivityController {
         model.addAttribute("operators", operators);
 
         return "activities/add";
+    }
+
+    @PostMapping("/add")
+    public String processAddActivity(@ModelAttribute @Valid Activity newActivity, @RequestParam(required = false) List<Integer> operatorIds, @RequestParam(required = false) List<Integer> activityTypeIds, Errors errors, Model model) {
+        if(errors.hasErrors()) {
+            System.out.println(errors.getAllErrors());
+            List<Operator> allOperators = operatorRepository.findAll();
+            List<ActivityType> allActivityTypes = activityTypeRepository.findAll();
+
+            model.addAttribute("operators", allOperators);
+            model.addAttribute("activityTypes", allActivityTypes);
+
+            return "activities/add";
+        } else {
+            if (operatorIds != null && activityTypeIds != null) {
+                List<Operator> selectedOperator = operatorRepository.findAllById(operatorIds);
+                List<ActivityType> selectedActivityType = activityTypeRepository.findAllById(activityTypeIds);
+                newActivity.setOperators(selectedOperator);
+                newActivity.setActivityTypes(selectedActivityType);
+            }
+        }
+        activityRepository.save(newActivity);
+        return "redirect:/activities";
     }
 
 }
