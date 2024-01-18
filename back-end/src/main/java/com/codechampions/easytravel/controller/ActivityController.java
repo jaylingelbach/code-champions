@@ -22,6 +22,9 @@ public class ActivityController {
     @Autowired
     private ActivityRepository activityRepository;
 
+    @Autowired
+    private OperatorRepository operatorRepository;
+
     @PostMapping("/activity")
     Activity newActivity(@RequestBody Activity newActivity){
         return activityRepository.save(newActivity);
