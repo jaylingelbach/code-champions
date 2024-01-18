@@ -17,6 +17,14 @@ public class Activity extends AbstractEntity{
     private String start_date;
     private String end_date;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public String getEvent_name() {
         return event_name;
     }
