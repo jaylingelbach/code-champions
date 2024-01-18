@@ -23,6 +23,16 @@
                         <th>Group/Organizer</th>
                     </tr>
                 </thead>
+                    <tr th:each="activity: ${activities}">
+                        <td><a th:href="${'/activities/details/' + activity.id}" th:text="${activity.event_name}"></a></td>
+                        <td th:text="${activity.event_description}"></td>
+                        <td th:text="${activity.cost}"></td>
+                        <td th:text="${activity.location}"></td>
+                        <td th:text="${activity.start_date}"></td>
+                        <td th:text="${activity.end_date}"></td>
+                        <td th:text="${activity.getFormattedActivityTypes()}"></td>
+                        <td th:text="${activity.getFormattedOperators()}"></td>
+                    </tr>
             </table>
         </th:block>
     </main>
