@@ -22,4 +22,8 @@ public class ActivityType extends AbstractEntity{
         this.name = name;
     }
 
+    public List<Activity> getActivities() {
+        return activities;
+    }
+
 }
