@@ -14,6 +14,8 @@ public class ActivityType extends AbstractEntity{
     @ManyToMany(mappedBy = "activityTypes")
     private final List<Activity> activities = new ArrayList<>();
 
+    public ActivityType() {}
+
     public String getName() {
         return name;
     }
