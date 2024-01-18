@@ -1,5 +1,6 @@
 package com.codechampions.easytravel.controller;
 
+import com.codechampions.easytravel.model.Activity;
 import com.codechampions.easytravel.model.User;
 import com.codechampions.easytravel.model.dto.LoginFormDTO;
 import com.codechampions.easytravel.model.dto.RegistrationFormDTO;
@@ -32,7 +33,7 @@ public class AuthenticationController {
         System.out.println("session: " + session.getAttribute("user"));
     }
 
-    public User getUserFromSession(HttpSession session) {
+    public Activity getUserFromSession(HttpSession session) {
 
         Integer userId = (Integer) session.getAttribute(userSessionKey);
 
@@ -40,7 +41,7 @@ public class AuthenticationController {
             return null;
         }
 
-        Optional<User> userOpt = userRepository.findById(userId);
+        Optional<Activity> userOpt = userRepository.findById(userId);
 
         if (userOpt.isEmpty()) {
             return null;
