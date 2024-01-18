@@ -117,4 +117,15 @@ public class Activity extends AbstractEntity{
         }
         return operatorNames.toString();
     }
+
+    public String getFormattedActivityTypes() {
+        StringBuilder activityTypeNames = new StringBuilder("");
+        for (int i=0; i < activityTypes.size(); i++) {
+            activityTypeNames.append(activityTypes.get(i).getName());
+            if (i < activityTypes.size() - 1) {
+                activityTypeNames.append(", ");
+            }
+        }
+        return activityTypeNames.toString();
+    }
 }
