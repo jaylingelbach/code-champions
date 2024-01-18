@@ -1,8 +1,7 @@
 package com.codechampions.easytravel.controller;
 
-import com.codechampions.easytravel.repository.CommentRepository;
+import com.codechampions.easytravel.repository.*;
 import org.springframework.stereotype.Controller;
-import com.codechampions.easytravel.repository.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +23,12 @@ public class ActivityController {
 
     @Autowired
     private OperatorRepository operatorRepository;
+
+    @Autowired
+    private ActivityTypeRepository activityTypeRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @PostMapping("/activity")
     Activity newActivity(@RequestBody Activity newActivity){
