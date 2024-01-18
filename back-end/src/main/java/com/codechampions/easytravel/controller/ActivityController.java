@@ -1,6 +1,7 @@
 package com.codechampions.easytravel.controller;
 
 import com.codechampions.easytravel.model.ActivityType;
+import com.codechampions.easytravel.model.Comment;
 import com.codechampions.easytravel.model.Operator;
 import com.codechampions.easytravel.repository.*;
 import jakarta.validation.Valid;
@@ -88,6 +89,22 @@ public class ActivityController {
         }
         activityRepository.save(newActivity);
         return "redirect:/activities";
+    }
+
+    @GetMapping("/details/{activityId}")
+    public String displayActivityDetailsPage(@PathVariable int activityId, Model model) {
+        Optional<Activity> result = activityRepository.findById(activityId);
+        if (result.isPresent()) {
+            Activity activity= result.get();
+            List<Comment> comments = commentRepository.findAll();
+            Comment newComment = new Comment();
+            model.addAttribute("comments", comments);
+            model.addAttribute("newComment", newComment);
+            model.addAttribute("activity", activity);
+            return "activities/details";
+        } else {
+            return "activities/index";
+        }
     }
 
 }
