@@ -106,4 +106,15 @@ public class Activity extends AbstractEntity{
     public void setOperators(List<Operator> operators) {
         this.operators = operators;
     }
+
+    public String getFormattedOperators() {
+        StringBuilder operatorNames = new StringBuilder("");
+        for (int i=0; i < operators.size(); i++) {
+            operatorNames.append(operators.get(i).getName());
+            if (i < operators.size() - 1) {
+                operatorNames.append(", ");
+            }
+        }
+        return operatorNames.toString();
+    }
 }
