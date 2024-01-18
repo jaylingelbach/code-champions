@@ -1,16 +1,14 @@
 package com.codechampions.easytravel.controller;
 
-import com.codechampions.easytravel.model.ActivityType;
-import com.codechampions.easytravel.model.Comment;
-import com.codechampions.easytravel.model.Operator;
+import com.codechampions.easytravel.model.*;
 import com.codechampions.easytravel.repository.*;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-import com.codechampions.easytravel.model.Activity;
 
 import java.util.List;
 import java.util.Optional;
@@ -105,6 +103,19 @@ public class ActivityController {
         } else {
             return "activities/index";
         }
+    }
+
+    @PostMapping("/details/{activityId}")
+    public String addCommentToDetails(@ModelAttribute Comment newComment, HttpSession session) {
+        Integer userId = (Integer) session.getAttribute(userSessionKey);
+        Optional<User> userOpt = userRepository.findById(userId);
+
+        if( userOpt.isPresent()) {
+            newComment.setUser(userOpt.get());
+            commentRepository.save(newComment);
+        }
+
+        return "redirect:/activities/details/{activityId}";
     }
 
 }
