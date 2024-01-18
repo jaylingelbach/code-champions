@@ -33,6 +33,8 @@ public class Activity extends AbstractEntity{
         this.operators = operators;
     }
 
+    public Activity() {}
+
     public User getUser() {
         return user;
     }
