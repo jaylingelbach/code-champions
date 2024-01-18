@@ -51,13 +51,18 @@ public class ActivityController {
             model.addAttribute("activities", activityRepository.findAll());
         }
         return "activities/index";
+    }
 
-    @PostMapping("/activity")
-    Activity newActivity(@RequestBody Activity newActivity){
-        return activityRepository.save(newActivity);
+    @GetMapping("/add")
+    public String displayAddActivityForm(Model model) {
+        Activity newActivity = new Activity();
+        List<Operator> operators = operatorRepository.findAll();
+        List<ActivityType> activityTypes = activityTypeRepository.findAll();
+        model.addAttribute("activity", newActivity);
+        model.addAttribute("activityTypes", activityTypes);
+        model.addAttribute("operators", operators);
+
+        return "activities/add";
     }
-    @GetMapping("/activities")
-    List<Activity> getAllActivities(){
-        return activityRepository.findAll();
-    }
+
 }
