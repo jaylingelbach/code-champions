@@ -1,4 +1,7 @@
 package com.codechampions.easytravel.model;
 
-public class Operator {
+import jakarta.persistence.Entity;
+
+@Entity
+public class Operator extends AbstractEntity{
 }
