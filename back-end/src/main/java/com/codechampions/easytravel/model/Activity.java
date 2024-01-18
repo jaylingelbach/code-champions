@@ -1,16 +1,14 @@
 package com.codechampions.easytravel.model;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 
 @Entity
-public class Activity {
+public class Activity extends AbstractEntity{
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    @ManyToOne
+    private User user;
     private String event_name;
     private String event_description;
     private Float cost;
@@ -18,23 +16,31 @@ public class Activity {
     private String start_date;
     private String end_date;
 
-    public Long getGroupId() {
-        return groupId;
+    @ManyToMany
+    private List<ActivityType> activityTypes;
+
+    @ManyToMany
+    private List<Operator> operators;
+
+    public Activity(String event_name, String event_description, Float cost, String location, String start_date, String end_date, List<ActivityType> activityTypes, List<Operator> operators) {
+        this.event_name = event_name;
+        this.event_description = event_description;
+        this.cost = cost;
+        this.location = location;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.activityTypes = activityTypes;
+        this.operators = operators;
     }
 
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
+    public Activity() {}
+
+    public User getUser() {
+        return user;
     }
 
-    @Column(name= "group_id", nullable = false)
-    private Long groupId;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getEvent_name() {
@@ -83,5 +89,43 @@ public class Activity {
 
     public void setEnd_date(String end_date) {
         this.end_date = end_date;
+    }
+
+    public List<ActivityType> getActivityTypes() {
+        return activityTypes;
+    }
+
+    public void setActivityTypes(List<ActivityType> activityTypes) {
+        this.activityTypes = activityTypes;
+    }
+
+    public List<Operator> getOperators() {
+        return operators;
+    }
+
+    public void setOperators(List<Operator> operators) {
+        this.operators = operators;
+    }
+
+    public String getFormattedOperators() {
+        StringBuilder operatorNames = new StringBuilder("");
+        for (int i=0; i < operators.size(); i++) {
+            operatorNames.append(operators.get(i).getName());
+            if (i < operators.size() - 1) {
+                operatorNames.append(", ");
+            }
+        }
+        return operatorNames.toString();
+    }
+
+    public String getFormattedActivityTypes() {
+        StringBuilder activityTypeNames = new StringBuilder("");
+        for (int i=0; i < activityTypes.size(); i++) {
+            activityTypeNames.append(activityTypes.get(i).getName());
+            if (i < activityTypes.size() - 1) {
+                activityTypeNames.append(", ");
+            }
+        }
+        return activityTypeNames.toString();
     }
 }

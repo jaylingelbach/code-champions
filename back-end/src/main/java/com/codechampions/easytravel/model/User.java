@@ -1,98 +1,57 @@
 package com.codechampions.easytravel.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+//import jakarta.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.awt.*;
-
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public class User {
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class User extends AbstractEntity{
 
-    private String userName;
+    //    @NotNull
+    private String username;
 
-    private String email;
+    private String pwHash;
 
-    private String firstName;
+    @OneToOne(cascade = CascadeType.ALL)
+    @Valid
+    private UserProfile profile;
 
-    private String lastName;
+    @OneToMany
+    private final List<Activity> activities = new ArrayList<>();
 
-    private String password;
+    public User() {}
 
-//    private Image avatar;
-
-    public User() {
+    public User(String username, String password) {
+        this.username = username;
+        this.pwHash = encoder.encode(password);
     }
 
-    public User(Integer id, String userName, String email, String firstName, String lastName, String password, Image avatar) {
-        this.id = id;
-        this.userName = userName;
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-//        this.avatar = avatar;
+    public UserProfile getProfile() {
+        return profile;
     }
 
-
-    public Integer getId() {
-        return id;
+    public void setProfile(UserProfile profile) {
+        this.profile = profile;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public List<Activity> getActivities() {
+        return activities;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    //should not able to be overwritten
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+    public boolean isMatchingPassword(String password) {
+        return encoder.matches(password, pwHash);
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-//    public Image getAvatar() {
-//        return avatar;
-//    }
-
-//    public void setAvatar(Image avatar) {
-//        this.avatar = avatar;
-//    }
 }
+
