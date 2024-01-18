@@ -7,9 +7,6 @@ import jakarta.persistence.Id;
 @Entity
 public class Activity extends AbstractEntity{
 
-    @Id
-    @GeneratedValue
-    private Long id;
     private String event_name;
     private String event_description;
     private Float cost;
