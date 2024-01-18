@@ -30,10 +30,17 @@ public class User extends AbstractEntity{
         this.pwHash = encoder.encode(password);
     }
 
-//    public User(String username, UserProfile profile) {
-//        this.username =username;
-//        this.profile = profile;
-//    }
+    public UserProfile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(UserProfile profile) {
+        this.profile = profile;
+    }
+
+    public List<Activity> getActivities() {
+        return activities;
+    }
 
     public String getUsername() {
         return username;
