@@ -13,11 +13,9 @@ public class User extends AbstractEntity{
 
     private String pwHash;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @Valid
-//   @JoinColumn()
-//    private UserProfile profile;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @Valid
+    private UserProfile profile;
 
     public User() {}
 
