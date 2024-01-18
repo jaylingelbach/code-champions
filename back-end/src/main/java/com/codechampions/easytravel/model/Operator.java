@@ -6,4 +6,6 @@ import jakarta.persistence.Entity;
 public class Operator extends AbstractEntity{
 
     private String name;
+
+    private String email;
 }
