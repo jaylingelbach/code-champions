@@ -1,6 +1,3 @@
 {
-    "java.compile.nullAnalysis.mode": "automatic",
-    "java.project.sourcePaths": [
-        "easytravel/src"
-    ]
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
