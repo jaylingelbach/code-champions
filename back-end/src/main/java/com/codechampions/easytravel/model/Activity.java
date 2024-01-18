@@ -19,6 +19,9 @@ public class Activity extends AbstractEntity{
     @ManyToMany
     private List<ActivityType> activityTypes;
 
+    @ManyToMany
+    private List<Operator> operators;
+
     public User getUser() {
         return user;
     }
