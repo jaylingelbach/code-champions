@@ -22,6 +22,17 @@ public class Activity extends AbstractEntity{
     @ManyToMany
     private List<Operator> operators;
 
+    public Activity(String event_name, String event_description, Float cost, String location, String start_date, String end_date, List<ActivityType> activityTypes, List<Operator> operators) {
+        this.event_name = event_name;
+        this.event_description = event_description;
+        this.cost = cost;
+        this.location = location;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.activityTypes = activityTypes;
+        this.operators = operators;
+    }
+
     public User getUser() {
         return user;
     }
