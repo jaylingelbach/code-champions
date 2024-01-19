@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Activities</title>
+</head>
+<body>
+<main>
+    <h1>Activities</h1>
+
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <!-- Add more columns based on your activity data model -->
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="activity : ${activities}">
+                <td th:text="${activity.id}"></td>
+                <td th:text="${activity.event_name}"></td>
+                <td th:text="${activity.event_description}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add the "Add Activity" button -->
+    <div>
+        <a href="/newactivity">
+            <button>Add Activity</button>
+        </a>
+    </div>
+
+</main>
+
+</body>
+</html>

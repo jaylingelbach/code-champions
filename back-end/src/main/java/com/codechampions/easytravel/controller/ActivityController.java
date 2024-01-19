@@ -2,7 +2,10 @@ package com.codechampions.easytravel.controller;
 
 import com.codechampions.easytravel.model.Group;
 import com.codechampions.easytravel.repository.ActivityRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.codechampions.easytravel.model.Activity;
 import java.util.List;
@@ -14,12 +17,7 @@ public class ActivityController {
     @Autowired
     private ActivityRepository activityRepository;
 
-    @PostMapping("/activity")
-    Activity newActivity(@RequestBody Activity newActivity) {
-        return activityRepository.save(newActivity);
-    }
-
-    @GetMapping("/activities")
+    @GetMapping("/allactivities")
     List<Activity> getAllActivities() {
         return activityRepository.findAll();
     }

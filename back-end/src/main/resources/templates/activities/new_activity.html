@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <title>New Activity</title>
+</head>
+<body>
+<main>
+    <h1>New Activity</h1>
+
+    <form th:action="@{/activity}" method="post" th:object="${newActivity}" enctype="application/x-www-form-urlencoded">
+
+        <label for="eventName">Event Name:</label>
+        <input type="text" id="eventName" name="eventName" th:field="*{event_name}" required><br>
+
+        <label for="eventCost">Cost:</label>
+        <input type="text" id="eventCost" name="eventCost" th:field="*{cost}" required><br>
+
+        <label for="eventName">Location:</label>
+        <input type="text" id="eventLocation" name="eventLocation" th:field="*{location}" required><br>
+
+        <label for="eventStartDate">Start Date:</label>
+        <input type="text" id="eventStartDate" name="eventStartDate" th:field="*{start_date}" required><br>
+
+        <label for="eventEndDate">End Date:</label>
+        <input type="text" id="eventEndDate" name="eventEndDate" th:field="*{end_date}" required><br>
+
+        <label for="eventDescription">Event Description:</label>
+        <textarea id="eventDescription" name="eventDescription" th:field="*{event_description}" required></textarea><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <a th:href="@{/activities}">
+        <button type="button">Return to Activities</button>
+    </a>
+</main>
+
+</body>
+</html>
