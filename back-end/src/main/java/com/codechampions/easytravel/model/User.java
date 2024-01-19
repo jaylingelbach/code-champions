@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 //import jakarta.validation.constraints.NotNull;
 import jakarta.validation.Valid;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import javax.validation.Valid;
+
 
 import java.util.ArrayList;
 import java.util.List;
